@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-
+const sizeGridButton = document.querySelector('#gridSize');
 
 // 16*16 GRID:
 for (i=1;i<=16;i++){
@@ -20,3 +20,6 @@ for (i=1;i<=16;i++){
     }
     
 }
+sizeGridButton.addEventListener('click', () => {
+})
+
