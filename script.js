@@ -22,8 +22,11 @@ for (i=1;i<=16;i++){
 sizeGridButton.addEventListener('click', () => {
     const squares = prompt('How many squares per side you want? (Ex: 5)');
     const newContainer = document.createElement('div')
+    const oldContainer = document.querySelector('.container');
+
     newContainer.classList.add('container');
-    body.replaceChild(newContainer,container);
+    body.replaceChild(newContainer,oldContainer);
+    
     for (i=1;i<=squares;i++){
         const horizontalSquare = document.createElement('div');
         newContainer.appendChild(horizontalSquare);
