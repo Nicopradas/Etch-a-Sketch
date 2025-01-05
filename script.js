@@ -1,17 +1,20 @@
 const container = document.querySelector('.container');
 const sizeGridButton = document.querySelector('#gridSize');
 const body = document.querySelector('body');
+
 // 16*16 GRID:
 for (i=1;i<=16;i++){
     const horizontalSquare = document.createElement('div');
     container.appendChild(horizontalSquare);
     for (f=1;f<=16;f++){
         const verticalSquare = document.createElement('div');
+        //size of the whole grid (500):
+        const sizeSquare = (500/16-1)+'px';
         verticalSquare.textContent='';
-        verticalSquare.style.height='25px';
-        verticalSquare.style.width='25px';
+        verticalSquare.style.height=sizeSquare;
+        verticalSquare.style.width=sizeSquare;
         verticalSquare.style.border='0.5px solid black';
-
+        
         verticalSquare.addEventListener('mouseover',() =>{
             verticalSquare.style.backgroundColor='green';
         })
@@ -19,6 +22,7 @@ for (i=1;i<=16;i++){
     }
     
 }
+// CHOOSE SIZE OF GRID ON CLICK:
 sizeGridButton.addEventListener('click', () => {
     const squares = prompt('How many squares per side you want? (Ex: 5)');
     const newContainer = document.createElement('div')
@@ -32,13 +36,18 @@ sizeGridButton.addEventListener('click', () => {
         newContainer.appendChild(horizontalSquare);
         for (f=1;f<=squares;f++){
             const verticalSquare = document.createElement('div');
+
+            //size of the whole grid (500):
+            const sizeSquare = (500/squares-1)+'px';
+
             verticalSquare.textContent='';
-            verticalSquare.style.height='25px';
-            verticalSquare.style.width='25px';
+            verticalSquare.style.height=sizeSquare;
+            verticalSquare.style.width=sizeSquare;
             verticalSquare.style.border='0.5px solid black';
     
             verticalSquare.addEventListener('mouseover',() =>{
                 verticalSquare.style.backgroundColor='green';
+                
             })
                 horizontalSquare.appendChild(verticalSquare);
         }
