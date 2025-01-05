@@ -9,10 +9,10 @@ for (i=1;i<=16;i++){
     for (f=1;f<=16;f++){
         const verticalSquare = document.createElement('div');
         //size of the whole grid (500):
-        const sizeSquare = (500/16-1)+'px';
+        const sizeWholeGrid = (500/16-1)+'px';
         verticalSquare.textContent='';
-        verticalSquare.style.height=sizeSquare;
-        verticalSquare.style.width=sizeSquare;
+        verticalSquare.style.height=sizeWholeGrid;
+        verticalSquare.style.width=sizeWholeGrid;
         verticalSquare.style.border='0.5px solid black';
         
         verticalSquare.addEventListener('mouseover',() =>{
@@ -26,9 +26,9 @@ for (i=1;i<=16;i++){
 sizeGridButton.addEventListener('click', () => {
     const squares = prompt('How many squares per side you want? (Ex: 5)');
     const newContainer = document.createElement('div')
+    newContainer.classList.add('container');
     const oldContainer = document.querySelector('.container');
 
-    newContainer.classList.add('container');
     body.replaceChild(newContainer,oldContainer);
     
     for (i=1;i<=squares;i++){
@@ -38,11 +38,11 @@ sizeGridButton.addEventListener('click', () => {
             const verticalSquare = document.createElement('div');
 
             //size of the whole grid (500):
-            const sizeSquare = (500/squares-1)+'px';
+            const sizeWholeGrid = (500/squares-1)+'px';
 
             verticalSquare.textContent='';
-            verticalSquare.style.height=sizeSquare;
-            verticalSquare.style.width=sizeSquare;
+            verticalSquare.style.height=sizeWholeGrid;
+            verticalSquare.style.width=sizeWholeGrid;
             verticalSquare.style.border='0.5px solid black';
     
             verticalSquare.addEventListener('mouseover',() =>{
