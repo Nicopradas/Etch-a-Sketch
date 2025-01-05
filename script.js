@@ -29,29 +29,35 @@ sizeGridButton.addEventListener('click', () => {
     newContainer.classList.add('container');
     const oldContainer = document.querySelector('.container');
 
-    body.replaceChild(newContainer,oldContainer);
-    
-    for (i=1;i<=squares;i++){
-        const horizontalSquare = document.createElement('div');
-        newContainer.appendChild(horizontalSquare);
-        for (f=1;f<=squares;f++){
-            const verticalSquare = document.createElement('div');
+    if (squares <=100){
+        body.replaceChild(newContainer,oldContainer);
 
-            //size of the whole grid (500):
-            const sizeWholeGrid = (500/squares-1)+'px';
-
-            verticalSquare.textContent='';
-            verticalSquare.style.height=sizeWholeGrid;
-            verticalSquare.style.width=sizeWholeGrid;
-            verticalSquare.style.border='0.5px solid black';
+        for (i=1;i<=squares;i++){
+            const horizontalSquare = document.createElement('div');
+            newContainer.appendChild(horizontalSquare);
+            for (f=1;f<=squares;f++){
+                const verticalSquare = document.createElement('div');
     
-            verticalSquare.addEventListener('mouseover',() =>{
-                verticalSquare.style.backgroundColor='green';
-                
-            })
-                horizontalSquare.appendChild(verticalSquare);
+                //size of the whole grid (500):
+                const sizeWholeGrid = (500/squares-1)+'px';
+    
+                verticalSquare.textContent='';
+                verticalSquare.style.height=sizeWholeGrid;
+                verticalSquare.style.width=sizeWholeGrid;
+                verticalSquare.style.border='0.5px solid black';
+        
+                verticalSquare.addEventListener('mouseover',() =>{
+                    verticalSquare.style.backgroundColor='green';
+                    
+                })
+                    horizontalSquare.appendChild(verticalSquare);
+            }
         }
+
+    } else{
+        alert('It cannot be higher than 100');
     }
+    
 
 })
 
