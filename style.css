@@ -1,8 +1,15 @@
 
+.logo{
+    display: flex;
+    justify-content: center;
+    height: 150px;
+}
+
 .upperButton{
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
+    
 }
 .bottomButton{
     display: flex;
