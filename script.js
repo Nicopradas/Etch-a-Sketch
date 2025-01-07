@@ -2,6 +2,36 @@ const container = document.querySelector('.container');
 const sizeGridButton = document.querySelector('#gridSize');
 const body = document.querySelector('body');
 
+// VARIABLES TO CHOOSE ACTION:
+const randomButton = document.querySelector('#randomButton');
+const eraseButton = document.querySelector('#eraseButton');
+
+
+
+function hoverColor(square){
+    let randomNumber1=Math.round(Math.random()*255);
+    let randomNumber2=Math.round(Math.random()*255);
+    let randomNumber3=Math.round(Math.random()*255);
+
+    let color= 'rgb('+randomNumber1+','+randomNumber2+','+randomNumber3+')';
+
+
+    // When hover, background color is green
+    square.addEventListener('mouseover',() =>{
+        square.style.backgroundColor='green';
+    })
+    // When clicked, background color in hover is random
+    randomButton.addEventListener('click', ()=>{
+        square.addEventListener('mouseover',() =>{
+            square.style.backgroundColor=color;
+        })
+    })
+    // When clicked, background color is erased
+    eraseButton.addEventListener('click', ()=>{
+        square.style.backgroundColor='';
+    })
+}
+
 // 16*16 GRID:
 for (i=1;i<=16;i++){
     const horizontalSquare = document.createElement('div');
@@ -15,10 +45,11 @@ for (i=1;i<=16;i++){
         verticalSquare.style.width=sizeWholeGrid;
         verticalSquare.style.border='0.5px solid black';
         
-        verticalSquare.addEventListener('mouseover',() =>{
-            verticalSquare.style.backgroundColor='green';
-        })
-            horizontalSquare.appendChild(verticalSquare);
+
+        hoverColor(verticalSquare);    
+        
+        
+        horizontalSquare.appendChild(verticalSquare);
     }
     
 }
@@ -29,6 +60,7 @@ sizeGridButton.addEventListener('click', () => {
     newContainer.classList.add('container');
     const oldContainer = document.querySelector('.container');
 
+    //IF IS HIGHER THAN 100 SQUARES, IT WONT WORK.
     if (squares <=100){
         body.replaceChild(newContainer,oldContainer);
 
@@ -45,12 +77,11 @@ sizeGridButton.addEventListener('click', () => {
                 verticalSquare.style.height=sizeWholeGrid;
                 verticalSquare.style.width=sizeWholeGrid;
                 verticalSquare.style.border='0.5px solid black';
-        
-                verticalSquare.addEventListener('mouseover',() =>{
-                    verticalSquare.style.backgroundColor='green';
-                    
-                })
-                    horizontalSquare.appendChild(verticalSquare);
+                
+                hoverColor(verticalSquare);    
+
+                
+                horizontalSquare.appendChild(verticalSquare);
             }
         }
 
