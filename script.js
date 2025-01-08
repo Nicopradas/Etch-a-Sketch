@@ -28,7 +28,7 @@ function hoverColor(square){
     })
     // When clicked, background color is erased
     eraseButton.addEventListener('click', ()=>{
-        square.style.backgroundColor='';
+        square.style.backgroundColor='white';
     })
 }
 
@@ -43,6 +43,7 @@ for (i=1;i<=16;i++){
         verticalSquare.textContent='';
         verticalSquare.style.height=sizeWholeGrid;
         verticalSquare.style.width=sizeWholeGrid;
+        verticalSquare.style.backgroundColor='white';
         verticalSquare.style.border='0.5px solid black';
         
 
@@ -76,6 +77,7 @@ sizeGridButton.addEventListener('click', () => {
                 verticalSquare.textContent='';
                 verticalSquare.style.height=sizeWholeGrid;
                 verticalSquare.style.width=sizeWholeGrid;
+                verticalSquare.style.backgroundColor='white';
                 verticalSquare.style.border='0.5px solid black';
                 
                 hoverColor(verticalSquare);    
